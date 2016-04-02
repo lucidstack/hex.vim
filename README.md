@@ -12,6 +12,8 @@ As usual, clone this repo/use whichever plugin manager you fancy, and you are re
 
 ### Prerequisites
 
+This plugin uses [mattn/webapi-vim](https://github.com/mattn/webapi-vim) for making calls to the 
+hex.pm API, so please make sure to have that cloned or in your list of plugins. 👌🏼
 
 ## How to use
 
@@ -35,7 +37,7 @@ argument to get all the releases for given package in a little pane.
 ```
 
 ### `HexAllVersions [package]`
-Just an alias for `HexAllReleases` ☝🏻
+Just an alias for `HexAllReleases` ☝🏼
 
 ### `HexPackageInfo [package]`
 Leave your cursor on a line with a package name, or pass a name as only
