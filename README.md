@@ -15,11 +15,11 @@ As usual, clone this repo/use whichever plugin manager you fancy, and you are re
 
 ## How to use
 
-#### `HexAppendRelease`
+### `HexAppendRelease`
 Leave your cursor on a line with a package name, (like `{:ecto ` or even
 `{:credo, only: [:dev, :test]}]`) and let the magic happen.
 
-#### `HexAllReleases [package]`
+### `HexAllReleases [package]`
 Leave your cursor on a line with a package name, or pass a name as only
 argument to get all the releases for given package in a little pane.
 ```
@@ -34,10 +34,10 @@ argument to get all the releases for given package in a little pane.
 0.1.0 (released on 2014-11-18)
 ```
 
-#### `HexAllVersions [package]`
-Just an alias for [`HexAllReleases`](#HexAllReleases)
+### `HexAllVersions [package]`
+Just an alias for `HexAllReleases` ☝🏻
 
-#### `HexPackageInfo [package]`
+### `HexPackageInfo [package]`
 Leave your cursor on a line with a package name, or pass a name as only
 argument to get info on the given package (from `mix hex.info`).
 ```
@@ -57,13 +57,15 @@ Links:
   Github: https://github.com/lucidstack/ex-portmidi
 ```
 
-#### `HexOpenHexDocs [package]`
+### `HexOpenHexDocs [package]`
 Open the hexdocs page for the given package (or in the line under the cursor)
 in the system-default browser.  This doesn't check if hexdocs are published for
 a package, so you might get some 404's here and there.
 
 Note: this uses `open` on OSX and `xdg-open` on Linux systems.
 
-#### `HexOpenGithub [package]`
+### `HexOpenGithub [package]`
 Open the github repo for the given package (or in the line under the cursor) in
 the system-default browser.
+
+Note: this uses `open` on OSX and `xdg-open` on Linux systems.
