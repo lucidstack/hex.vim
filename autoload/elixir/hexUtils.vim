@@ -17,20 +17,20 @@ function! elixir#hexUtils#appendRelease(package, release)
   let with_version = a:package . ', "\~> ' . a:release . '"'
   let new_line = substitute(getline('.'), regex, with_version, "")
 
-  call s:check_after_release(new_line)
+  call s:check_after_release(new_line, a:release)
   normal! $
 endfunction
 
 
-function! s:check_after_release(new_line)
-  let after_version = matchstr(a:new_line, a:release . '"\zs.')
+function! s:check_after_release(line, release)
+  let after_version = matchstr(a:line, a:release . '"\zs.')
   if empty(after_version) || after_version == ']'
-    let new_line = substitute(a:new_line, a:release . '"', a:release . '"}', "")
+    let line = substitute(a:line, a:release . '"', a:release . '"}', "")
   else
-    let new_line = substitute(a:new_line, a:release . '"', a:release . '", ', "")
+    let line = substitute(a:line, a:release . '"', a:release . '", ', "")
   endif
 
-  call setline('.', new_line)
+  call setline('.', line)
 endfunction
 
 
