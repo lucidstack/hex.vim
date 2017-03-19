@@ -28,15 +28,14 @@ endfunction
 function! elixir#hexApi#fetchPackage(package)
   echom 'Retrieving information from hex.pm ...'
 
-  let uri = 'http://hex.pm/api/packages/' . a:package
-  let result = webapi#http#get(uri)
+  let uri = 'https://hex.pm/api/packages/' . a:package
+
+  let result = system(printf('curl -L -i -X GET -H "Content-Cache: no-cache" "%s"', uri))
+  let pos = stridx(result, "\r\n\r\n")
+  let content = strpart(result, pos+4)
 
   redraw!
-  if result.status == 404
-    call s:packageNotFound(a:package)
-  endif
-
-  return webapi#json#decode(result.content)
+  return webapi#json#decode(content)
 endfunction
 
 function! s:extractDate(str)
