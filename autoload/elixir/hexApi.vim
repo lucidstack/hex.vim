@@ -30,7 +30,7 @@ function! elixir#hexApi#fetchPackage(package)
 
   let uri = 'https://hex.pm/api/packages/' . a:package
 
-  let result = system(printf('curl -L -i -X GET -H "Content-Cache: no-cache" "%s"', uri))
+  let result = system(printf('curl -sS -L -i -X GET -H "Content-Cache: no-cache" "%s"', uri))
   let pos = stridx(result, "\r\n\r\n")
   let content = strpart(result, pos+4)
 
